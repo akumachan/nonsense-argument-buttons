@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="message">{{ message }}</div>
+    <NonsenseButton name="吾郎" complaint="吉野家が至高だ！" />
+    <NonsenseButton name="慎吾" complaint="すき家が最強に決まってる！" />
+    <NonsenseButton name="剛" complaint="松屋が究極だろーが！" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import store from './store.js'
+import NonsenseButton from './components/NonsenseButton'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NonsenseButton
+  },
+  computed: {
+    message () {
+      return store.getters.message
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
